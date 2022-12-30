@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: service6-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/abhiptl/argocd.git
+    targetRevision: HEAD
+    path: dev/service-6
+    directory:
+      recurse : true
+  destination:
+    server: https://kubernetes.default.svc
+  
+    

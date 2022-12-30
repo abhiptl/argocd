@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: service-1
+  name: service-6
   namespace: eks-sample-app
   labels:
-    app: service1-nginx
+    app: service6-nginx
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: service1-nginx
+      app: service6-nginx
   template:
     metadata:
       labels:
-        app: service1-nginx
+        app: service6-nginx
     spec:
       containers:
       - name: nginx
