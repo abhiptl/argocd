@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-2
+  namespace: eks-sample-app
+  labels:
+    app: service2-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service2-nginx
+  template:
+    metadata:
+      labels:
+        app: service2-nginx
+    spec:
+      containers:
+      - name: nginx
+        image: public.ecr.aws/nginx/nginx:1.21
+        ports:
+        - name: http
+          containerPort: 80
+        imagePullPolicy: IfNotPresent
+      nodeSelector:
+        kubernetes.io/os: linux

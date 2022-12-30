@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service2-nginx
+  namespace: eks-sample-app
+  labels:
+    app: service2-nginx
+spec:
+  selector:
+    app: service2-nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
